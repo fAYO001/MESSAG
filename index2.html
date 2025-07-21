@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Love Letter Envelope</title>
+<style>
+   body {
+     background-color: #ffe6f0;
+     font-family: 'Georgia', serif;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     overflow: hidden;
+     margin: 0;
+     padding: 20px;
+     box-sizing: border-box;
+   }
+   .envelope-wrapper {
+     position: relative;
+     width: 300px;
+     height: 200px;
+     background-color: #ffb6c1;
+     border-radius: 10px;
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+     transition: all 0.5s ease-in-out;
+     cursor: pointer;
+     z-index: 1;
+   }
+   .heart-btn {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     font-size: 40px;
+     color: red;
+     transition: transform 0.3s;
+     z-index: 2;
+   }
+   .heart-btn:hover {
+     transform: translate(-50%, -50%) scale(1.2);
+   }
+   .letter {
+     position: fixed;
+     /* Fixed position so it appears relative to viewport */
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     width: 90vw;
+     max-width: 600px;
+     max-height: 80vh;
+     background-color: white;
+     border-radius: 10px;
+     padding: 30px 40px;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+     opacity: 0;
+     pointer-events: none;
+     overflow-y: auto;
+     color: #333;
+     line-height: 1.6;
+     font-size: 18px;
+     transition: opacity 0.5s ease;
+     z-index: 10;
+   }
+   .envelope-wrapper.open .letter {
+     opacity: 1;
+     pointer-events: auto;
+   }
+   .letter p {
+     margin-bottom: 1.3em;
+   }
+</style>
+</head>
+<body>
+<div class="envelope-wrapper" onclick="openLetter()">
+<div class="heart-btn">❤️</div>
+<div class="letter" id="letter">
+<p>I wasn’t looking for anything when I found you, but somehow, you became one of the best things in my life.
+     It hasn’t even been a full month since we’ve been together, but the time we’ve spent so far has already been fun, wild, and unforgettable.</p>
+<p>From the very first moment we met—your weirdness, your smile, the way you just are—something clicked.
+     And even now, I catch myself smiling at the little memories we’ve already made. 😭😂💔</p>
+<p>I’ll be honest… I’m not always great with words. But what I’m trying to say is simple: <strong>I love you</strong>. 💕
+     I may not say it all the time, but please know that I truly mean it every single time I do.
+     You mean more to me than you probably realize.</p>
+<p>Here’s to more laughs, more weird moments, and more of <em>us</em>. 💖</p>
+</div>
+</div>
+<script>
+   function openLetter() {
+     const envelope = document.querySelector(".envelope-wrapper");
+     envelope.classList.toggle("open");
+   }
+</script>
+</body>
+</html>
