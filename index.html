@@ -2,111 +2,161 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Just Wait MFNH... 💖</title>
+<title>Love Letter Envelope</title>
 <style>
 
     body {
 
-      background: #fff0f5;
+      background-color: #ffe6f0;
 
-      font-family: 'Courier New', Courier, monospace;
+      font-family: 'Georgia', serif;
 
       display: flex;
 
-      flex-direction: column;
+      justify-content: center;
 
       align-items: center;
 
-      justify-content: center;
-
       height: 100vh;
+
+      overflow: hidden;
 
       margin: 0;
 
     }
 
-    #countdown {
+    .envelope-wrapper {
 
-      font-size: 3em;
+      position: relative;
 
-      color: #d63384;
+      width: 300px;
 
-    }
+      height: 200px;
 
-    #message {
+      background-color: #ffb6c1;
 
-      font-size: 3em;
+      border-radius: 10px;
 
-      color: #e60073;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 
-      display: none;
+      transition: all 0.5s ease-in-out;
 
-      animation: heartbeat 1s infinite;
-
-    }
-
-    @keyframes heartbeat {
-
-      0% { transform: scale(1); }
-
-      25% { transform: scale(1.1); }
-
-      50% { transform: scale(1); }
-
-      75% { transform: scale(1.1); }
-
-      100% { transform: scale(1); }
+      cursor: pointer;
 
     }
 
-    #subtext {
+    .heart-btn {
 
-      font-size: 1.5em;
+      position: absolute;
 
-      color: #800040;
+      top: 50%;
 
-      margin-top: 10px;
+      left: 50%;
 
-      display: none;
+      transform: translate(-50%, -50%);
+
+      font-size: 40px;
+
+      color: red;
+
+      transition: transform 0.3s;
+
+      z-index: 2;
+
+    }
+
+    .heart-btn:hover {
+
+      transform: translate(-50%, -50%) scale(1.2);
+
+    }
+
+    .letter {
+
+      position: absolute;
+
+      top: 100%;
+
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      width: 320px;
+
+      height: 350px;
+
+      background-color: white;
+
+      border-radius: 10px;
+
+      padding: 20px;
+
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+      opacity: 0;
+
+      transition: all 0.6s ease;
+
+      max-height: 0;
+
+      overflow: hidden;
+
+    }
+
+    .envelope-wrapper.open .letter {
+
+      opacity: 1;
+
+      top: -200%;
+
+      max-height: 1000px;
+
+      overflow-y: auto;
+
+    }
+
+    .letter::-webkit-scrollbar {
+
+      width: 6px;
+
+    }
+
+    .letter::-webkit-scrollbar-thumb {
+
+      background-color: #ffb6c1;
+
+      border-radius: 3px;
 
     }
 </style>
 </head>
 <body>
-<div id="countdown">3</div>
-<div id="message">I ❤️ You, Aaliyah</div>
-<div id="subtext">Forever and always, my love 💌</div>
+<div class="envelope-wrapper" onclick="openLetter()">
+<div class="heart-btn">❤️</div>
+<div class="letter" id="letter">
+<p>I wasn’t looking for anything when I found you, but somehow, you became one of the best things in my life.
+
+      It hasn’t even been a full month since we’ve been together, but the time we’ve spent so far has already been fun, wild, and unforgettable.</p>
+<p>From the very first moment we met—your weirdness, your smile, the way you just are—something clicked.
+
+      And even now, I catch myself smiling at the little memories we’ve already made. 😭😂💔</p>
+<p>I’ll be honest… I’m not always great with words. But what I’m trying to say is simple: <strong>I love you</strong>. 💕
+
+      I may not say it all the time, but please know that I truly mean it every single time I do.
+
+      You mean more to me than you probably realize.</p>
+<p>Here’s to more laughs, more weird moments, and more of <em>us</em>. 💖</p>
+</div>
+</div>
 <script>
 
-    let count = 3;
+    function openLetter() {
 
-    const countdownEl = document.getElementById('countdown');
+      const envelope = document.querySelector(".envelope-wrapper");
 
-    const messageEl = document.getElementById('message');
+      envelope.classList.toggle("open");
 
-    const subtextEl = document.getElementById('subtext');
-
-    const countdownInterval = setInterval(() => {
-
-      count--;
-
-      if (count > 0) {
-
-        countdownEl.textContent = count;
-
-      } else {
-
-        clearInterval(countdownInterval);
-
-        countdownEl.style.display = 'none';
-
-        messageEl.style.display = 'block';
-
-        subtextEl.style.display = 'block';
-
-      }
-
-    }, 1000);
+    }
 </script>
 </body>
 </html>
