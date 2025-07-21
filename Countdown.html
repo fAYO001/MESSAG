@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Just Wait MFNH... 💖</title>
+<style>
+
+    body {
+
+      background: #fff0f5;
+
+      font-family: 'Courier New', Courier, monospace;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      height: 100vh;
+
+      margin: 0;
+
+    }
+
+    #countdown {
+
+      font-size: 3em;
+
+      color: #d63384;
+
+    }
+
+    #message {
+
+      font-size: 3em;
+
+      color: #e60073;
+
+      display: none;
+
+      animation: heartbeat 1s infinite;
+
+    }
+
+    @keyframes heartbeat {
+
+      0% { transform: scale(1); }
+
+      25% { transform: scale(1.1); }
+
+      50% { transform: scale(1); }
+
+      75% { transform: scale(1.1); }
+
+      100% { transform: scale(1); }
+
+    }
+
+    #subtext {
+
+      font-size: 1.5em;
+
+      color: #800040;
+
+      margin-top: 10px;
+
+      display: none;
+
+    }
+</style>
+</head>
+<body>
+<div id="countdown">3</div>
+<div id="message">I ❤️ You, Aaliyah</div>
+<div id="subtext">Forever and always, my love 💌</div>
+<script>
+
+    let count = 3;
+
+    const countdownEl = document.getElementById('countdown');
+
+    const messageEl = document.getElementById('message');
+
+    const subtextEl = document.getElementById('subtext');
+
+    const countdownInterval = setInterval(() => {
+
+      count--;
+
+      if (count > 0) {
+
+        countdownEl.textContent = count;
+
+      } else {
+
+        clearInterval(countdownInterval);
+
+        countdownEl.style.display = 'none';
+
+        messageEl.style.display = 'block';
+
+        subtextEl.style.display = 'block';
+
+      }
+
+    }, 1000);
+</script>
+</body>
+</html>
+ 
